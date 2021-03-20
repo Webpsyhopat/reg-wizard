@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router';
+import RegForm from './components/regForm/RegForm';
+import { NavLink } from 'react-router-dom';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path = '/registration/:step?'><RegForm /></Route>
+      <Route exact path = '/'>
+      <NavLink to='/registration/1' className = 'regLink'><h1>Registration</h1></NavLink>
+      </Route>
     </div>
   );
 }
