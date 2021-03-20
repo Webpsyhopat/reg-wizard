@@ -1,6 +1,6 @@
 import s from './RegForm.module.css'
 
-const SuccessfullEnd = (props) => {
+const SuccessfullEnd = () => {
     return (
         <div className={s.SuccessfullEndedForm}>
             <h1>Success!</h1>

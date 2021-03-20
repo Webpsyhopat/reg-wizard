@@ -19,6 +19,10 @@ const RegForm = (props) => {
     })
 
     useEffect(() => {
+        setLocalState({ ...localState, step: props.match.params.step })
+    }, [props.match.params.step])
+
+    useEffect(() => {
         if (props.match.params.step !== localState.step) {
             history.push(`/registration/${localState.step}`)
         }
@@ -36,6 +40,15 @@ const RegForm = (props) => {
         setLocalState({ ...localState, step: '4', categories: [...Object.values(values)] })
     }
 
+    const refresh = () => {
+        setLocalState({
+            step: 1,
+            contacts: { email: '', phone: '', password: '', passwordConfirm: '' },
+            address: { country: '', city: '', address: '' },
+            categories: [0, 0, 0,]
+        })
+    }
+
     return (
         <>
             <div className={s.formWrapper}>
@@ -47,10 +60,10 @@ const RegForm = (props) => {
                         onSubmit={addressSubmit} /></Route>
                     <Route exact path='/registration/3'><CategoriesForm state={localState.categories}
                         onSubmit={categoriesSubmit} /></Route>
-                    <Route exact path='/registration/4'><SuccessfullEnd /></Route>
+                    <Route exact path='/registration/4'><SuccessfullEnd/></Route>
                 </div>
             </div>
-            <Route exact path='/registration/4'><ShowResult {...localState} /></Route>
+            <Route exact path='/registration/4'><ShowResult {...localState} refresh = {refresh} /></Route>
         </>
     )
 }

@@ -127,18 +127,38 @@
 }
 
 .resultBlock {
+    background-color: rgb(188, 247, 188);
     color: gray;
-    text-align: right;
-    position: absolute;
-    top: 40px; right: 40px;
+    text-align: left;
+    padding-right: 20px;
+    width: 540px;
+    margin: 10px auto;
+    border-radius: 20px;
+}
+
+.resultBlock h2 {
+    text-align: center;
+    padding: 10px;
+    margin:0;
+}
+
+.resultBlock span {
+    display: inline-block;
+    padding-left: 35px;
+}
+
+.resultBlock p {
+    line-height: 0.2em;
 }
 
 .tryAgainLink {
-    font-size: 0.8em;
     color: green;
     text-decoration: none;
+    text-align: center;
+    padding: 20px
 }
 
 .tryAgainLink:hover {
     text-decoration: underline;
+    cursor: pointer;
 }

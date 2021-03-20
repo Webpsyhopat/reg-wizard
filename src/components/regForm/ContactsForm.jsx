@@ -4,7 +4,7 @@ import { Field, Form, Formik } from 'formik';
 
 const ContactsForm = ({ state, ...props }) => {
 
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const phoneRegExp = /^((\+?3)?8)?0\d{9}$/
 
     const contactsValidation = yup.object().shape({
         email: yup.string().required('Required field').email('Wrong email'),
@@ -46,7 +46,7 @@ const ContactsForm = ({ state, ...props }) => {
                     <Form onSubmit={handleSubmit}>
 
                         <label>Email</label>
-                        <Field type='text' name="email" className={s.formBodyInput} value={values.email} />
+                        <Field type='email' name="email" className={s.formBodyInput} value={values.email} />
                         {errors.email && touched.email && <div className={s.error}>{errors.email}</div>}
 
                         <label>Phone</label>

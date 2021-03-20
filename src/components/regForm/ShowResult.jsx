@@ -1,29 +1,29 @@
 import { NavLink } from 'react-router-dom'
 import s from './RegForm.module.css'
 
-const ShowResult = ({ contacts, address, categories }) => {
+const ShowResult = ({ contacts, address, categories, refresh }) => {
     return (
         <div className={s.resultBlock}>
-            <h1>Inputed data:</h1>
+            <h2>Inputed data:</h2>
             <span>
-                <h2>Contacts:</h2>
-                <p>{contacts.email}</p> 
-                <p>{contacts.phone}</p>
-                <p>{contacts.password}</p>
+                <h3>Contacts:</h3>
+                <p>Email: {contacts.email}</p>
+                <p>Phone: {contacts.phone}</p>
+                <p>Password: {contacts.password}</p>
             </span>
             <span>
-                <h2>Address:</h2>
-                <p>{address.country}</p>
-                <p>{address.city}</p>
-                <p>{address.address}</p>
+                <h3>Address:</h3>
+                <p>Country: {address.country}</p>
+                <p>City: {address.city}</p>
+                <p>Address: {address.address}</p>
             </span>
             <span>
-                <h2>Categories:</h2>
-                <p>{categories[0]}</p>
-                <p>{categories[1]}</p>
-                <p>{categories[2]}</p>
+                <h3>Categories:</h3>
+                <p>Category 1 {categories[0]}</p>
+                <p>Category 2 {categories[1]}</p>
+                <p>Category 3 {categories[2]}</p>
             </span>
-            <NavLink to='/registration/1' className = {s.tryAgainLink}><h1>Try again</h1></NavLink>
+            <div className={s.tryAgainLink} onClick={refresh}>Try again</div>
         </div>
     )
 }
